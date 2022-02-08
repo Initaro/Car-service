@@ -22,6 +22,10 @@ public class Brand {
     @JsonIgnoreProperties("brand")
     private List<AutoService> autoServices;
 
+    @OneToMany(mappedBy = "brand")
+    @JsonIgnore
+    private List<TypeOfServicePriceOvercharge> typeOfServicePriceOvercharges;
+
     public Brand(long idBrands, String name) {
         this.idBrands = idBrands;
         this.name = name;

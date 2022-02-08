@@ -1,5 +1,7 @@
 package car_service.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +23,10 @@ public class TypeOfService {
 
     @ManyToMany
     private List<AutoService> autoServices;
+
+    @OneToMany(mappedBy = "typeofservice")
+    @JsonIgnore
+    private List<TypeOfServicePriceOvercharge> typeOfServicePriceOvercharges;
 
     public TypeOfService(long idTypeOfService, double price, String type, String description, List<History> histories, List<Employee> employees, List<AutoService> autoServices) {
         this.idTypeOfService = idTypeOfService;
