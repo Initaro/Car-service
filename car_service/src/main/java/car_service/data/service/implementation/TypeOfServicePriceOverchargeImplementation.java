@@ -1,5 +1,7 @@
 package car_service.data.service.implementation;
 
+import car_service.data.entity.AutoService;
+import car_service.data.entity.TypeOfService;
 import car_service.data.entity.TypeOfServicePriceOvercharge;
 import car_service.data.repository.TypeOfServicePriceOverchargeRepository;
 import car_service.data.service.TypeOfServicePriceOverchargeService;
@@ -45,5 +47,10 @@ public class TypeOfServicePriceOverchargeImplementation implements TypeOfService
     @Override
     public void deleteTypeOfServicePriceOvercharge(long id) {
         typeOfServicePriceOverchargeRepository.deleteById(id);
+    }
+
+    @Override
+    public TypeOfService findByTypeOfService(long id) {
+        return getTypeOfServicePriceOvercharge(id).getTypeOfService();
     }
 }

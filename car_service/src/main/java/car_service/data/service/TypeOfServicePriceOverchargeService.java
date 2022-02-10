@@ -1,5 +1,7 @@
 package car_service.data.service;
 
+import car_service.data.entity.AutoService;
+import car_service.data.entity.TypeOfService;
 import car_service.data.entity.TypeOfServicePriceOvercharge;
 
 import java.util.List;
@@ -15,4 +17,6 @@ public interface TypeOfServicePriceOverchargeService {
     TypeOfServicePriceOvercharge updateTypeOfServicePriceOvercharge(TypeOfServicePriceOvercharge typeOfServicePriceOvercharge, long id);
 
     void deleteTypeOfServicePriceOvercharge(long id);
+
+    TypeOfService findByTypeOfService(long id);
 }

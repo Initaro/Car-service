@@ -40,4 +40,9 @@ public class TypeOfServicePriceOverchargeApiController {
     public void deleteTypeOfServicePriceOvercharge(@PathVariable long id) {
         typeOfServicePriceOverchargeService.deleteTypeOfServicePriceOvercharge(id);
     }
+
+    @GetMapping(value = "/search-type-of-service/{typeOfServiceId}")
+    public TypeOfService findDistinctByName(@PathVariable("typeOfServiceId") long id) {
+        return typeOfServicePriceOverchargeService.findByTypeOfService(id);
+    }
 }
