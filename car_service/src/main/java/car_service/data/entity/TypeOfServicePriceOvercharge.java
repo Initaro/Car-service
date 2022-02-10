@@ -1,5 +1,7 @@
 package car_service.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -16,7 +18,11 @@ public class TypeOfServicePriceOvercharge {
     private Brand brand;
 
     @ManyToOne
+    @JsonIgnore
     private TypeOfService typeOfService;
+
+    public TypeOfServicePriceOvercharge() {
+    }
 
     public TypeOfServicePriceOvercharge(long id, BigDecimal brandOvercharge) {
         this.id = id;
@@ -44,5 +50,21 @@ public class TypeOfServicePriceOvercharge {
 
     public void setBrandOvercharge(BigDecimal brandOvercharge) {
         this.brandOvercharge = brandOvercharge;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public TypeOfService getTypeOfService() {
+        return typeOfService;
+    }
+
+    public void setTypeOfService(TypeOfService typeOfService) {
+        this.typeOfService = typeOfService;
     }
 }
