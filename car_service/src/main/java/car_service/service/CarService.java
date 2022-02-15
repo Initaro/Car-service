@@ -1,4 +1,4 @@
-package car_service.data.service;
+package car_service.service;
 
 import car_service.data.entity.Car;
 

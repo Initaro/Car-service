@@ -24,7 +24,7 @@ public class TypeOfService {
     @ManyToMany
     private List<AutoService> autoServices;
 
-    @OneToMany(mappedBy = "typeofservice")
+    @OneToMany(mappedBy = "typeOfService")
     @JsonIgnore
     private List<TypeOfServicePriceOvercharge> typeOfServicePriceOvercharges;
 

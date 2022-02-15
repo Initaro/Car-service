@@ -1,7 +1,7 @@
 package car_service.controllers.api;
 
 import car_service.data.entity.History;
-import car_service.data.service.HistoryService;
+import car_service.service.HistoryService;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;

@@ -1,7 +1,7 @@
 package car_service.controllers.api;
 
 import car_service.data.entity.IdCard;
-import car_service.data.service.IdCardService;
+import car_service.service.IdCardService;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
