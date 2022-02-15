@@ -4,6 +4,7 @@ import car_service.data.entity.History;
 import car_service.service.HistoryService;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -56,6 +57,10 @@ public class HistoryApiController {
     @GetMapping("/date-of-repair-different/{dateOfRepair}")
     public List<History> findByDateOfRepairNotLike(@PathVariable("dateOfRepair") LocalDate dateOfRepair) {
         return historyService.findByDateOfRepairNotLike(dateOfRepair);
+    }
+    @GetMapping("/finalPriceByBrand/idHistory/{idHistory}")
+    public BigDecimal findFinalPriceByBrand(@PathVariable("idHistory") long idHistory) {
+        return historyService.findFinalPriceByBrand(idHistory);
     }
 
 }

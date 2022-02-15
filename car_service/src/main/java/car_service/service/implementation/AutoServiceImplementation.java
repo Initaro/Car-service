@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class AutoServiceImplementation implements AutoServiceService {
+public class  AutoServiceImplementation implements AutoServiceService {
     private final EmployeeService employeeService;
     private final AutoServiceRepository autoServiceRepository;
 
@@ -78,6 +78,7 @@ public class AutoServiceImplementation implements AutoServiceService {
     @Override
     public Set<Customer> findAllCustomersByAutoService(long id) {
         AutoService autoService = getAutoService(id);
+
 
         List<Employee> employees = autoService.getEmployees();
         List<History> histories = new ArrayList<>();
