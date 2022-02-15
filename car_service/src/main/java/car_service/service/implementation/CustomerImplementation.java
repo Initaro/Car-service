@@ -1,8 +1,8 @@
-package car_service.data.service.implementation;
+package car_service.service.implementation;
 
 import car_service.data.entity.*;
 import car_service.data.repository.CustomerRepository;
-import car_service.data.service.CustomerService;
+import car_service.service.CustomerService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

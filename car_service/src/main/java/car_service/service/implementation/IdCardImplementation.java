@@ -1,8 +1,8 @@
-package car_service.data.service.implementation;
+package car_service.service.implementation;
 
 import car_service.data.entity.IdCard;
 import car_service.data.repository.IdCardRepository;
-import car_service.data.service.IdCardService;
+import car_service.service.IdCardService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

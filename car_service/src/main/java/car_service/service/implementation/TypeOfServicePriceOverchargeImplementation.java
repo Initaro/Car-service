@@ -1,10 +1,9 @@
-package car_service.data.service.implementation;
+package car_service.service.implementation;
 
-import car_service.data.entity.AutoService;
 import car_service.data.entity.TypeOfService;
 import car_service.data.entity.TypeOfServicePriceOvercharge;
 import car_service.data.repository.TypeOfServicePriceOverchargeRepository;
-import car_service.data.service.TypeOfServicePriceOverchargeService;
+import car_service.service.TypeOfServicePriceOverchargeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
