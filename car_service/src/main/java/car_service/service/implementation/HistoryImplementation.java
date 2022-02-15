@@ -1,11 +1,13 @@
-package car_service.data.service.implementation;
+package car_service.service.implementation;
 
-import car_service.data.entity.History;
+import car_service.data.entity.*;
 import car_service.data.repository.HistoryRepository;
-import car_service.data.service.HistoryService;
+import car_service.service.HistoryService;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -56,6 +58,30 @@ public class HistoryImplementation implements HistoryService {
     @Override
     public List<History> findByIdHistoryBetweenAndIsPaidFalse(long firstId, long secondId) {
         return historyRepository.findByIdHistoryBetweenAndIsPaidFalse(firstId, secondId);
+    }
+
+    @Override
+    public BigDecimal findFinalPriceByBrand(long idHistory) {
+        History history = historyRepository.getById(idHistory);
+        Car car = history.getCar();
+        Brand brand = car.getBrand();
+        List<TypeOfService> typeOfServices = history.getTypeOfServices();
+        BigDecimal finalPrice=BigDecimal.valueOf(0);
+        List<TypeOfServicePriceOvercharge> typeOfServicePriceOvercharges = new ArrayList<>();
+        for (TypeOfService typeOfService1 : typeOfServices) {
+            typeOfServicePriceOvercharges.addAll(typeOfService1.getTypeOfServicePriceOvercharges());
+
+        }
+        for (TypeOfServicePriceOvercharge typeOfServicePriceOvercharge1 : typeOfServicePriceOvercharges) {
+            for (TypeOfService typeOfService1 : typeOfServices) {
+                if (brand.equals(typeOfServicePriceOvercharge1.getBrand())) {
+                    finalPrice = typeOfServicePriceOvercharge1.getBrandOvercharge().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(typeOfService1.getPrice()));
+                    finalPrice =finalPrice.add(BigDecimal.valueOf(typeOfService1.getPrice()));
+                }
+            }
+        }
+
+        return finalPrice;
     }
 
     @Override

@@ -1,8 +1,8 @@
-package car_service.data.service.implementation;
+package car_service.service.implementation;
 
 import car_service.data.entity.Employee;
 import car_service.data.repository.EmployeeRepository;
-import car_service.data.service.EmployeeService;
+import car_service.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

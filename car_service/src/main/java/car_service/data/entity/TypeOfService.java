@@ -21,6 +21,10 @@ public class TypeOfService {
     @ManyToMany
     private List<Employee> employees;
 
+    public List<TypeOfServicePriceOvercharge> getTypeOfServicePriceOvercharges() {
+        return typeOfServicePriceOvercharges;
+    }
+
     @ManyToMany
     private List<AutoService> autoServices;
 

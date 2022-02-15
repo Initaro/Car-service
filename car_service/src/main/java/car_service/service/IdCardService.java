@@ -1,4 +1,4 @@
-package car_service.data.service;
+package car_service.service;
 
 import java.time.LocalDate;
 import java.util.List;

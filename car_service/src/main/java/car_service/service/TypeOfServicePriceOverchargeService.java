@@ -1,6 +1,5 @@
-package car_service.data.service;
+package car_service.service;
 
-import car_service.data.entity.AutoService;
 import car_service.data.entity.TypeOfService;
 import car_service.data.entity.TypeOfServicePriceOvercharge;
 

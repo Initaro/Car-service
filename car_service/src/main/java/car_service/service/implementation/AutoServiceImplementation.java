@@ -1,9 +1,9 @@
-package car_service.data.service.implementation;
+package car_service.service.implementation;
 
 import car_service.data.entity.*;
 import car_service.data.repository.AutoServiceRepository;
-import car_service.data.service.AutoServiceService;
-import car_service.data.service.EmployeeService;
+import car_service.service.AutoServiceService;
+import car_service.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class AutoServiceImplementation implements AutoServiceService {
+public class  AutoServiceImplementation implements AutoServiceService {
     private final EmployeeService employeeService;
     private final AutoServiceRepository autoServiceRepository;
 
@@ -78,6 +78,7 @@ public class AutoServiceImplementation implements AutoServiceService {
     @Override
     public Set<Customer> findAllCustomersByAutoService(long id) {
         AutoService autoService = getAutoService(id);
+
 
         List<Employee> employees = autoService.getEmployees();
         List<History> histories = new ArrayList<>();

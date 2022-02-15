@@ -1,7 +1,7 @@
 package car_service.controllers.api;
 
 import car_service.data.entity.Car;
-import car_service.data.service.CarService;
+import car_service.service.CarService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
