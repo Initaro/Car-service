@@ -2,6 +2,7 @@ package car_service.service;
 
 import car_service.data.entity.History;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,6 +21,6 @@ public interface HistoryService {
     List<History> findByIsPaidOrderByDateOfRepairDesc(boolean isPaid);
 
     List<History> findByIdHistoryBetweenAndIsPaidFalse(long firstId, long secondId);
-
+    BigDecimal findFinalPriceByBrand(long idHistory);
     List<History> findByDateOfRepairNotLike(LocalDate dateOfRepair);
 }
