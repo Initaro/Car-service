@@ -1,6 +1,7 @@
 package car_service.controllers.api;
 
-import car_service.data.entity.*;
+import car_service.data.entity.TypeOfService;
+import car_service.data.entity.TypeOfServicePriceOvercharge;
 import car_service.service.TypeOfServicePriceOverchargeService;
 import org.springframework.web.bind.annotation.*;
 
