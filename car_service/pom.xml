@@ -16,6 +16,7 @@
     <properties>
         <java.version>8</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -53,4 +54,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

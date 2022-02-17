@@ -99,4 +99,14 @@ public class TypeOfService {
     public List<AutoService> getAutoServices() {
         return autoServices;
     }
+
+    @Override
+    public String toString() {
+        return "TypeOfService{" +
+                "idTypeOfService=" + idTypeOfService +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
