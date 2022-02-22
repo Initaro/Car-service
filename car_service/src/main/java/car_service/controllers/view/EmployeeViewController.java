@@ -25,13 +25,13 @@ public class EmployeeViewController {
     public String getEmployee(Model model) {
         final List<Employee> employees = employeeService.getEmployee();
         model.addAttribute("employees", employees);
-        return "employee";
+        return "/employee/employee";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditEmployee(Model model, @PathVariable Long id) {
         model.addAttribute("employee", employeeService.getEmployee(id));
-        return "edit-employee";
+        return "/employee/edit-employee";
     }
 
     @PostMapping("/update/{id}")

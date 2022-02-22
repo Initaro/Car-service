@@ -22,12 +22,12 @@ public class CarApiController {
 
     @GetMapping
     public List<Car> getAutoService() {
-        return carService.getCarService();
+        return carService.getCars();
     }
 
     @RequestMapping("/{id}")
     public Car getAutoService(@PathVariable("id") int id) {
-        return carService.getCarService(id);
+        return carService.getCars(id);
     }
 
     @PostMapping

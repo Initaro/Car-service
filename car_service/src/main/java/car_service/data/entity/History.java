@@ -1,6 +1,7 @@
 package car_service.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idHistory;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfRepair;
     private boolean isPaid;
 

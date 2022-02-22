@@ -22,13 +22,13 @@ public class TypeOfServiceViewController {
     public String getTypeOfService(Model model) {
         final List<TypeOfService> typeOfServices = typeOfServiceService.getTypeOfService();
         model.addAttribute("typeOfServices", typeOfServices);
-        return "typeOfService";
+        return "/typeOfService/typeOfService";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditTypeOfServiceForm(Model model, @PathVariable Long id) {
         model.addAttribute("typeOfService", typeOfServiceService.getTypeOfService(id));
-        return "edit-type-of-service";
+        return "/typeOfService/edit-type-of-service";
     }
 
     @PostMapping("/update/{id}")

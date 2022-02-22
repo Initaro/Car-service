@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+<body>
+<header th:replace="fragments :: header"></header>
+
+<h4>Type of service list:</h4>
+<div class="col-6">
+    <h3 th:unless="${histories} and ${histories.size()}">There are no services!</h3>
+    <table th:if="${histories.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>DateOfRepair</th>
+        <th>IsPaid</th>
+        <th>Car</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr th:each="history : ${histories}">
+            <td th:text="${history.idHistory}"></td>
+            <td th:text="${history.dateOfRepair}"></td>
+            <td th:text="${history.isPaid}"></td>
+            <td th:text="${history.car.model}+' '+${history.car.registrationNumber}"></td>
+            <td><a class="btn btn-info"
+                   th:href="@{'/historyView/edit/'+${history.idHistory}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/historyView/delete/'+${history.idHistory}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<footer th:replace="fragments :: footer"></footer>
+</html>

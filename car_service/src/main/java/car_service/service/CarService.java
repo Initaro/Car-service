@@ -5,9 +5,9 @@ import car_service.data.entity.Car;
 import java.util.List;
 
 public interface CarService {
-    List<Car> getCarService();
+    List<Car> getCars();
 
-    Car getCarService(long id);
+    Car getCars(long id);
 
     Car create(Car autoService);
 

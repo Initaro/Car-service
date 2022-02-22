@@ -21,12 +21,12 @@ public class CarImplementation implements CarService {
     }
 
     @Override
-    public List<Car> getCarService() {
+    public List<Car> getCars() {
         return carRepository.findAll();
     }
 
     @Override
-    public Car getCarService(long id) {
+    public Car getCars(long id) {
         return carRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid carservice id: " + id));
     }
