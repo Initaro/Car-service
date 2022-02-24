@@ -13,7 +13,7 @@ public interface CarService {
 
     Car updateCar(Car car, long id);
 
-    void deleteCarService(long id);
+    void deleteCar(long id);
 
     //Ivo
     List<Car> findAllByRegistrationNumberStartsWith(String registrationNumber);

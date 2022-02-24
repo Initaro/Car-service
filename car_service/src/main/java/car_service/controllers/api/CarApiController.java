@@ -41,8 +41,8 @@ public class CarApiController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteCarService(@PathVariable long id) {
-        carService.deleteCarService(id);
+    public void deleteCar(@PathVariable long id) {
+        carService.deleteCar(id);
     }
 
     //Ivo
