@@ -7,6 +7,23 @@
 
 <h4>Type of service edit:</h4>
 <div class="col-6">
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  <form action="#" th:action="@{/historyView/update/{id}(id=${history.idHistory})}" th:object="${history}" method="post">
+    <div class="form-group">
+      <label for="dateOfRepair">DateOfRepair:</label>
+      <input class="form-control" type="date" th:field="*{dateOfRepair}" placeholder="DateOfRepair" id="dateOfRepair">
+      <label for="isPaid">IsPaid:</label>
+      <input class="form-control" type="checkbox" th:field="*{paid}" id="isPaid">
+      <label for="car">Car:</label>
+      <select class="form-control" th:field="${history.car}" id="car">
+        <option value="">Select Car</option>
+        <option th:each="car : ${cars}" th:value="${car.id}"
+                th:text="${car.model}+ ' -> ' + ${car.registrationNumber}"></option>
+      </select>
+=======
+>>>>>>> Stashed changes
     <form action="#" th:action="@{/historyView/update/{id}(id=${history.idHistory})}" th:object="${history}"
           method="post">
         <div class="form-group">
@@ -26,6 +43,10 @@
                 <option th:each="car : ${cars}" th:value="${car.id}"
                         th:text="${car.model}+ ' -> ' + ${car.registrationNumber}"></option>
             </select>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8b916ae9b591df32b655c20a1c3a90df19530854
+>>>>>>> Stashed changes
 
         </div>
         <button type="submit" class="btn btn-primary">Update type of service</button>

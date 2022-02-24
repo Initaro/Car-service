@@ -7,6 +7,7 @@
 
 <h4>Type of service list:</h4>
 <div class="col-6">
+    <a class="btn btn-success" th:href="@{'/historyView/create-history/'}">Add</a>
     <h3 th:unless="${histories} and ${histories.size()}">There are no services!</h3>
     <table th:if="${histories.size()>0}" class="table table-hover">
         <th>Id</th>

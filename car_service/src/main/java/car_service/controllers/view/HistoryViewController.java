@@ -1,14 +1,12 @@
 package car_service.controllers.view;
 
 import car_service.data.entity.History;
+import car_service.data.entity.History;
 import car_service.service.CarService;
 import car_service.service.HistoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,7 +27,26 @@ public class HistoryViewController {
         model.addAttribute("histories", histories);
         return "/history/history";
     }
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+    @GetMapping("/create-history")
+    public String showCreateHistoryForm(Model model) {
+        model.addAttribute("history", new History());
+        model.addAttribute("cars", carService.getCars());
+        return "/history/create-history";
+    }
+
+    @PostMapping("/create")
+    public String createHistory(@ModelAttribute History history) {
+        historyService.createHistory(history);
+        return "redirect:/historyView";
+    }
+=======
+
+>>>>>>> 8b916ae9b591df32b655c20a1c3a90df19530854
+>>>>>>> Stashed changes
     @GetMapping("/edit/{id}")
     public String showEditTypeOfServiceForm(Model model, @PathVariable Long id) {
         model.addAttribute("history", historyService.getHistory(id));
