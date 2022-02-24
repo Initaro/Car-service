@@ -27,10 +27,6 @@ public class HistoryViewController {
         model.addAttribute("histories", histories);
         return "/history/history";
     }
-<<<<<<< Updated upstream
-
-=======
-<<<<<<< HEAD
     @GetMapping("/create-history")
     public String showCreateHistoryForm(Model model) {
         model.addAttribute("history", new History());
@@ -43,10 +39,6 @@ public class HistoryViewController {
         historyService.createHistory(history);
         return "redirect:/historyView";
     }
-=======
-
->>>>>>> 8b916ae9b591df32b655c20a1c3a90df19530854
->>>>>>> Stashed changes
     @GetMapping("/edit/{id}")
     public String showEditTypeOfServiceForm(Model model, @PathVariable Long id) {
         model.addAttribute("history", historyService.getHistory(id));
