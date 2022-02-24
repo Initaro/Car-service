@@ -8,6 +8,8 @@
 <h4>Type of service list:</h4>
 <div class="col-6">
     <h3 th:unless="${typeOfServices} and ${typeOfServices.size()}">There are no services!</h3>
+    <a class="btn btn-info" th:href="@{/typeOfServiceView/edit-type-of-service}">Add</a>
+
     <table th:if="${typeOfServices.size()>0}" class="table table-hover">
         <th>Id</th>
         <th>Description</th>

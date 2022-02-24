@@ -16,7 +16,8 @@ import java.util.List;
 @RequestMapping("/historyView")
 public class HistoryViewController {
     private final HistoryService historyService;
-    private final CarService    carService;
+    private final CarService carService;
+
     public HistoryViewController(HistoryService historyService, CarService carService) {
         this.historyService = historyService;
         this.carService = carService;
@@ -28,6 +29,7 @@ public class HistoryViewController {
         model.addAttribute("histories", histories);
         return "/history/history";
     }
+
     @GetMapping("/edit/{id}")
     public String showEditTypeOfServiceForm(Model model, @PathVariable Long id) {
         model.addAttribute("history", historyService.getHistory(id));
@@ -40,11 +42,11 @@ public class HistoryViewController {
         historyService.updateHistory(history, id);
         return "redirect:/historyView";
     }
+
     @GetMapping("/delete/{id}")
     public String processProgramForm(@PathVariable int id) {
         historyService.deleteHistory(id);
         return "redirect:/historyView";
     }
-
 
 }
