@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+<body>
+<header th:replace="fragments :: header"></header>
+
+<h4>Brand list:</h4>
+<div class="col-6">
+   <a class="btn btn-success" th:href="@{'/brandView/create-brand/'}">Add</a>
+    <h3 th:unless="${brands} and ${brands.size()}">There are no brands!</h3>
+    <table th:if="${brands.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr th:each="brand : ${brands}">
+            <td th:text="${brand.idBrands}"></td>
+            <td th:text="${brand.name}"></td>
+            <td><a class="btn btn-info"
+                   th:href="@{'/brandView/edit/'+${brand.idBrands}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/brandView/delete/'+${brand.idBrands}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<footer th:replace="fragments :: footer"></footer>
+</html>
