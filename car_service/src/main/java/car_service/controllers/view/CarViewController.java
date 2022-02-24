@@ -1,7 +1,6 @@
 package car_service.controllers.view;
 
 import car_service.data.entity.Car;
-import car_service.data.entity.Employee;
 import car_service.service.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,16 +14,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/carView")
 public class CarViewController {
-private final CarService carService;
+    private final CarService carService;
 
     public CarViewController(CarService carService) {
         this.carService = carService;
     }
 
     @GetMapping
-public String getCar(Model model){
-        final List<Car> cars=carService.getCars();
-        model.addAttribute("cars",cars);
+    public String getCar(Model model) {
+        final List<Car> cars = carService.getCars();
+        model.addAttribute("cars", cars);
         return "/car/car";
     }
 

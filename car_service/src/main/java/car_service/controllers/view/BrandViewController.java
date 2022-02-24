@@ -24,6 +24,7 @@ public class BrandViewController {
         model.addAttribute("brands", brands);
         return "/brand/brand";
     }
+
     @GetMapping("/create-brand")
     public String showCreateBrandForm(Model model) {
         model.addAttribute("brand", new Brand());
@@ -35,6 +36,7 @@ public class BrandViewController {
         brandService.createBrand(brand);
         return "redirect:/brandView";
     }
+
     @GetMapping("/edit/{id}")
     public String showEditBrand(Model model, @PathVariable Long id) {
         model.addAttribute("brand", brandService.getBrand(id));
