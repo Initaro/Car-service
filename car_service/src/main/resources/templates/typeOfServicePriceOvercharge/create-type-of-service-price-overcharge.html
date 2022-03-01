@@ -8,7 +8,7 @@
     <form action="#" th:action="@{/typeOfServicePriceOverchargeView/create}" th:object="${typeOfServicePriceOvercharge}" method="post">
         <div class="form-group">
             <label for="brandOvercharge">Price:</label>
-            <input class="form-control" type="text" th:field="*{brandOvercharge}" placeholder="BrandOvercharge" id="brandOvercharge">
+            <input class="form-control" type="text" th:field="*{brandOvercharge}" placeholder="Price" id="brandOvercharge">
             <label for="brand">Brand</label>
             <!--            <input class="form-control" type="text" th:field="*{brand}" placeholder="Brand" id="brand">-->
             <select class="form-control" th:field="${typeOfServicePriceOvercharge.brand}" id="brand">
