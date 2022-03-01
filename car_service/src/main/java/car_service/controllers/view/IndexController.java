@@ -1,5 +1,7 @@
 package car_service.controllers.view;
 
+import car_service.data.entity.User;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,4 +17,18 @@ public class IndexController {
         model.addAttribute("welcome", welcomeMessage);
         return "index";
     }
+//    @GetMapping("login")
+//    public String login(Model model) {
+//        final String welcomeMessage = "WELCOME TO THE CAR SERVICE!";
+//        model.addAttribute("welcome", welcomeMessage);
+//        return "login";
+//    }
+
+    @GetMapping("unauthorized")
+    public String unauthorized(Model model) {
+        final String welcomeMessage = "WELCOME TO THE CAR SERVICE!";
+        model.addAttribute("welcome", welcomeMessage);
+        return "unauthorized";
+    }
+
 }

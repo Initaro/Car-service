@@ -2,8 +2,10 @@ package car_service.controllers.view;
 
 import car_service.data.entity.History;
 import car_service.data.entity.History;
+import car_service.data.entity.User;
 import car_service.service.CarService;
 import car_service.service.HistoryService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
