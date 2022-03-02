@@ -30,6 +30,7 @@ public class Customer {
         this.idCard = idCard;
     }
 
+
     public void setIdCustomers(long idCustomers) {
         this.idCustomers = idCustomers;
     }
@@ -60,5 +61,14 @@ public class Customer {
 
     public IdCard getIdCard() {
         return idCard;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "idCustomers=" + idCustomers +
+                ", name='" + name + '\'' +
+                ", idCard=" + idCard +
+                '}';
     }
 }

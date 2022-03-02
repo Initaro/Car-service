@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+<body>
+<header th:replace="fragments :: header"></header>
+
+<h4>IdCard list:</h4>
+<div class="col-6">
+    <h3 th:unless="${idCards} and ${idCards.size()}">There are no idCards!</h3>
+    <table th:if="${idCards.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Customer</th>
+        <th>Birthdate</th>
+        <th>Link</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr th:each="idCard : ${idCards}">
+            <td th:text="${idCard.id}"></td>
+            <td th:text="${idCard.customer.name}"></td>
+            <td th:text="${idCard.birthdate}"></td>
+            <td th:text="${idCard.link}"></td>
+
+
+            <td><a class="btn btn-info"
+                   th:href="@{'/idCardView/edit/'+${idCard.id}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/idCardView/delete/'+${idCard.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<footer th:replace="fragments :: footer"></footer>
+</html>

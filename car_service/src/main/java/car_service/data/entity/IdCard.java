@@ -1,6 +1,7 @@
 package car_service.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ public class IdCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
     private String link;
 

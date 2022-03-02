@@ -2,6 +2,7 @@ package car_service.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ public class Car {
     private long id;
     private String model;
     private String registrationNumber;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate yearOfProduction;
 
     @OneToMany(mappedBy = "car")

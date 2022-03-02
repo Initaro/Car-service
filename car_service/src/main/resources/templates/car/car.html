@@ -10,6 +10,7 @@
     <h3 th:unless="${cars} and ${cars.size()}">There are no cars!</h3>
     <table th:if="${cars.size()>0}" class="table table-hover">
         <th>Id</th>
+        <th>Brand</th>
         <th>Model</th>
         <th>Registration number</th>
         <th>Year of production</th>
@@ -17,6 +18,7 @@
         <th>Delete</th>
         <tr th:each="car : ${cars}">
             <td th:text="${car.id}"></td>
+            <td th:text="${car.brand.name}"></td>
             <td th:text="${car.model}"></td>
             <td th:text="${car.registrationNumber}"></td>
             <td th:text="${car.yearOfProduction}"></td>
@@ -32,3 +34,5 @@
 
 <footer th:replace="fragments :: footer"></footer>
 </html>
+</body>
+
