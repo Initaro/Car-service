@@ -7,7 +7,7 @@
 
 <h4>Brand list:</h4>
 <div class="col-6">
-   <a class="btn btn-success" th:href="@{'/brandView/create-brand/'}">Add</a>
+    <a class="btn btn-success" th:href="@{'/brandView/create-brand/'}">Add</a>
     <h3 th:unless="${brands} and ${brands.size()}">There are no brands!</h3>
     <table th:if="${brands.size()>0}" class="table table-hover">
         <th>Id</th>

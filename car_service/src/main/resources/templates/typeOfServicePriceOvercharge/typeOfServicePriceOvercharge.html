@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+<body>
+<header th:replace="fragments :: header"></header>
+
+<h4>Price overcharge list:</h4>
+<div class="col-6">
+    <a class="btn btn-success" th:href="@{'/typeOfServicePriceOverchargeView/create-type-of-service-price-overcharge/'}">Add</a>
+    <h3 th:unless="${typeOfServicePriceOvercharges} and ${typeOfServicePriceOvercharges.size()}">There are no price overcharges!</h3>
+    <table th:if="${typeOfServicePriceOvercharges.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Price</th>
+        <th>Brand</th>
+        <th>Type Of Service</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Create</th>
+        <tr th:each="typeOfServicePriceOvercharge : ${typeOfServicePriceOvercharges}">
+            <td th:text="${typeOfServicePriceOvercharge.id}"></td>
+            <td th:text="${typeOfServicePriceOvercharge.brandOvercharge}"></td>
+            <td th:text="${typeOfServicePriceOvercharge.brand.name}"></td>
+            <td th:text="${typeOfServicePriceOvercharge.typeOfService.type}"></td>
+            <td><a class="btn btn-info"
+                   th:href="@{'/typeOfServicePriceOverchargeView/edit/'+${typeOfServicePriceOvercharge.id}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/typeOfServicePriceOverchargeView/delete/'+${typeOfServicePriceOvercharge.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<footer th:replace="fragments :: footer"></footer>
+</html>

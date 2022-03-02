@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
-
 <body>
 <header th:replace="fragments :: header"></header>
-
-<h4>Type of service edit:</h4>
-<div class="col-6">]
-    <form action="#" th:action="@{/historyView/update/{id}(id=${history.idHistory})}" th:object="${history}"
-          method="post">
+<h4>Register the History</h4>
+<div class="col-6">
+    <form action="#" th:action="@{/historyView/create}" th:object="${history}" method="post">
         <div class="form-group">
             <label for="dateOfRepair">DateOfRepair:</label>
-            <input class="form-control" type="date" th:field="*{dateOfRepair}" placeholder="DateOfRepair"
-                   id="dateOfRepair">
+            <input class="form-control" type="date" th:field="*{dateOfRepair}" placeholder="DateOfRepair" id="dateOfRepair">
             <label for="isPaid">IsPaid:</label>
             <input class="form-control" type="checkbox" th:field="*{paid}" id="isPaid">
             <label for="car">Car:</label>
@@ -22,10 +18,9 @@
                         th:text="${car.model}+ ' -> ' + ${car.registrationNumber}"></option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update type of service</button>
+        <button type="submit" class="btn btn-primary">Save History</button>
     </form>
 </div>
-</body>
-
 <footer th:replace="fragments :: footer"></footer>
+</body>
 </html>

@@ -1,6 +1,7 @@
 package car_service.controllers.view;
 
 import car_service.data.entity.Car;
+
 import car_service.data.entity.Employee;
 import car_service.service.BrandService;
 import car_service.service.CarService;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequestMapping("/carView")
 public class CarViewController {
     private final CarService carService;
+
     private final BrandService brandService;
 
     public CarViewController(CarService carService, BrandService brandService) {
