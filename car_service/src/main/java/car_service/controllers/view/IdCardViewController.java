@@ -24,9 +24,9 @@ public class IdCardViewController {
     }
 
     @GetMapping
-    public String getIdCard(Model model){
-        final List<IdCard> IdCards=idCardService.getIdCard();
-        model.addAttribute("idCards",IdCards);
+    public String getIdCard(Model model) {
+        final List<IdCard> IdCards = idCardService.getIdCard();
+        model.addAttribute("idCards", IdCards);
         return "/idCard/idCard";
     }
 

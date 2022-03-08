@@ -21,7 +21,6 @@
             <td th:text="${idCard.birthdate}"></td>
             <td th:text="${idCard.link}"></td>
 
-
             <td><a class="btn btn-info"
                    th:href="@{'/idCardView/edit/'+${idCard.id}}">Edit</a></td>
             <td><a class="btn btn-danger" th:href="@{'/idCardView/delete/'+${idCard.id}}">Delete</a>

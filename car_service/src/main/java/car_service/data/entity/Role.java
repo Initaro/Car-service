@@ -23,6 +23,8 @@ public class Role implements GrantedAuthority {
         this.users = users;
     }
 
+    public Role() {}
+
     public long getId() {
         return id;
     }
@@ -46,5 +48,13 @@ public class Role implements GrantedAuthority {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", authority='" + authority + '\'' +
+                '}';
     }
 }

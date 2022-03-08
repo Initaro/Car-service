@@ -33,7 +33,7 @@ public class User implements UserDetails {
     @Column
     private boolean isEnabled;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> authorities;
 
     public User(long id, String username, String password, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Set<Role> authorities) {
@@ -51,37 +51,37 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return isAccountNonExpired;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return isAccountNonLocked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return isCredentialsNonExpired;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return isEnabled;
     }
 
     public long getId() {
