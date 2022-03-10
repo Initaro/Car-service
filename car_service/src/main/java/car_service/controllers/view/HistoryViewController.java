@@ -41,6 +41,7 @@ public class HistoryViewController {
         historyService.createHistory(history);
         return "redirect:/historyView";
     }
+
     @GetMapping("/edit/{id}")
     public String showEditTypeOfServiceForm(Model model, @PathVariable Long id) {
         model.addAttribute("history", historyService.getHistory(id));

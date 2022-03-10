@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47b0a72c-234c-4b03-9c76-e332eb36b0c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/car_service/src/main/java/car_service/controllers/view/IdCardViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/car_service/src/main/resources/templates/idCard/edit-idCard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/car_service/src/main/resources/templates/idCard/idCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/java/car_service/controllers/view/CarViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/java/car_service/controllers/view/CarViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/java/car_service/controllers/view/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/java/car_service/controllers/view/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/java/car_service/data/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/java/car_service/data/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/java/car_service/data/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/java/car_service/data/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/java/car_service/data/entity/IdCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/java/car_service/data/entity/IdCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/resources/templates/car/car.html" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/resources/templates/car/car.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car_service/src/main/resources/templates/car/edit-car.html" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/resources/templates/car/edit-car.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/resources/templates/fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_service/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/car_service/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Automation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/car_service" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
