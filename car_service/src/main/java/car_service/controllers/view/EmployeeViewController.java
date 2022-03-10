@@ -1,13 +1,11 @@
 package car_service.controllers.view;
 
 import car_service.data.entity.Employee;
+import car_service.data.entity.Employee;
 import car_service.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,7 +37,17 @@ public class EmployeeViewController {
         employeeService.updateEmployee(employee, id);
         return "redirect:/employeeView";
     }
+    @GetMapping("/create-employee")
+    public String showCreateEmployeeForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "/employee/create-employee";
+    }
 
+    @PostMapping("/create")
+    public String createEmployee(@ModelAttribute Employee employee) {
+        employeeService.createEmployee(employee);
+        return "redirect:/employeeView";
+    }
     @GetMapping("/delete/{id}")
     public String processProgramForm(@PathVariable int id) {
         employeeService.deleteEmployee(id);
