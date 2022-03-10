@@ -7,6 +7,7 @@
 
 <h4>Employee list:</h4>
 <div class="col-6">
+    <a class="btn btn-success" th:href="@{'/employeeView/create-employee/'}">Add</a>
     <h3 th:unless="${employees} and ${employees.size()}">There are no employees!</h3>
     <table th:if="${employees.size()>0}" class="table table-hover">
         <th>Id</th>
