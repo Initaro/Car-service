@@ -15,7 +15,6 @@
                 <option th:each="brand : ${brands}" th:value="${brand.idBrands}"
                         th:text="${brand.name}"></option>
             </select>
-
             <label for="model">Model:</label>
             <input class="form-control" type="text" th:field="*{model}" placeholder="Model" id="model">
             <label for="registrationNumber">registrationNumber:</label>
