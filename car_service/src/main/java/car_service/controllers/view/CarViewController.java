@@ -2,15 +2,12 @@ package car_service.controllers.view;
 
 import car_service.data.entity.Car;
 
-import car_service.data.entity.Employee;
+import car_service.data.entity.Car;
 import car_service.service.BrandService;
 import car_service.service.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,7 +42,18 @@ public class CarViewController {
         carService.updateCar(car, id);
         return "redirect:/carView";
     }
+    @GetMapping("/create-car")
+    public String showCreateCarForm(Model model) {
+        model.addAttribute("car", new Car());
+        model.addAttribute("brands", brandService.getBrand());
+        return "/car/create-car";
+    }
 
+    @PostMapping("/create")
+    public String createCar(@ModelAttribute Car car) {
+        carService.create(car);
+        return "redirect:/carView";
+    }
     @GetMapping("/delete/{id}")
     public String processProgramForm(@PathVariable int id) {
         carService.deleteCar(id);
