@@ -1,7 +1,9 @@
 package car_service.service.implementation;
 
+import car_service.data.entity.Customer;
 import car_service.data.entity.IdCard;
 import car_service.data.repository.IdCardRepository;
+import car_service.service.CustomerService;
 import car_service.service.IdCardService;
 import org.springframework.stereotype.Service;
 
@@ -9,12 +11,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class IdCardImplementation implements IdCardService {
+public class IdCardServiceImplementation implements IdCardService {
 
     private final IdCardRepository idCardRepository;
+    private final CustomerService customerService;
 
-    public IdCardImplementation(IdCardRepository idCardRepository) {
+    public IdCardServiceImplementation(IdCardRepository idCardRepository, CustomerService customerService) {
         this.idCardRepository = idCardRepository;
+        this.customerService = customerService;
     }
 
     public IdCardRepository getIdCardRepository() {
@@ -68,5 +72,12 @@ public class IdCardImplementation implements IdCardService {
     public List<IdCard> findAllByOrderByBirthdateAscLinkDesc() {
         return idCardRepository.findAllByOrderByBirthdateAscLinkDesc();
     }
+
+    @Override
+    public IdCard getIdCardByCustomer(long id) {
+        Customer customer = customerService.getCustomer(id);
+        return customer.getIdCard();
+    }
+
 
 }

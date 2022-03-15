@@ -16,11 +16,11 @@
         <th>Edit</th>
         <th>Delete</th>
         <tr th:each="customer : ${customers}">
-            <td th:text="${customer.idCustomers}"></td>
+            <td th:text="${customer.id}"></td>
             <td th:text="${customer.name}"></td>
             <td><a class="btn btn-info"
-                   th:href="@{'/customerView/edit/'+${customer.idCustomers}}">Edit</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/customerView/delete/'+${customer.idCustomers}}">Delete</a>
+                   th:href="@{'/customerView/edit/'+${customer.id}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/customerView/delete/'+${customer.id}}">Delete</a>
             </td>
         </tr>
     </table>

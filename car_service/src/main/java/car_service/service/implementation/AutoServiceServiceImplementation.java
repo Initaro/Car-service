@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class  AutoServiceImplementation implements AutoServiceService {
+public class AutoServiceServiceImplementation implements AutoServiceService {
     private final EmployeeService employeeService;
     private final AutoServiceRepository autoServiceRepository;
 
-    public AutoServiceImplementation(EmployeeService employeeService, AutoServiceRepository autoServiceRepository) {
+    public AutoServiceServiceImplementation(EmployeeService employeeService, AutoServiceRepository autoServiceRepository) {
         this.employeeService = employeeService;
         this.autoServiceRepository = autoServiceRepository;
     }

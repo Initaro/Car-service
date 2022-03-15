@@ -13,7 +13,7 @@
             <label for="customer">Customer:</label>
             <select class="form-control" th:field="${idCard.customer}" id="customer">
                 <option value="">Select Customer</option>
-                <option th:each="customer : ${customers}" th:value="${customer.idCustomers}"
+                <option th:each="customer : ${customers}" th:value="${customer.id}"
                         th:text="${customer.name}"></option>
             </select>
 

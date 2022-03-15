@@ -4,13 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-public class Employee {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idEmployees;
+@PrimaryKeyJoinColumn(name = "idEmployees")
+public class Employee extends  User{
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+////    private long id;
     private String name;
     private String address;
 
@@ -25,10 +27,17 @@ public class Employee {
     @ManyToOne
     private AutoService autoService;
 
-    public Employee(long idEmployees, String name, String address) {
-        this.idEmployees = idEmployees;
+//    public Employee(long id, String name, String address) {
+//        this.id = id;
+//        this.name = name;
+//        this.address = address;
+//    }
+
+    public Employee(long id, String username, String password, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Set<Role> authorities, String name, String address, AutoService autoService) {
+        super(id, username, password, isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled, authorities);
         this.name = name;
         this.address = address;
+        this.autoService = autoService;
     }
 
     public Employee() {}
@@ -45,13 +54,13 @@ public class Employee {
         return autoService;
     }
 
-    public long getIdEmployees() {
-        return idEmployees;
-    }
-
-    public void setIdEmployees(long idEmployees) {
-        this.idEmployees = idEmployees;
-    }
+//    public long getIdEmployees() {
+//        return id;
+//    }
+//
+//    public void setIdEmployees(long id) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;

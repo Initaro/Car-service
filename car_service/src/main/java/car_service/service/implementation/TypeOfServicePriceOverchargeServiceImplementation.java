@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TypeOfServicePriceOverchargeImplementation implements TypeOfServicePriceOverchargeService {
+public class TypeOfServicePriceOverchargeServiceImplementation implements TypeOfServicePriceOverchargeService {
 
     private final TypeOfServicePriceOverchargeRepository typeOfServicePriceOverchargeRepository;
 
-    public TypeOfServicePriceOverchargeImplementation(TypeOfServicePriceOverchargeRepository typeOfServicePriceOverchargeRepository) {
+    public TypeOfServicePriceOverchargeServiceImplementation(TypeOfServicePriceOverchargeRepository typeOfServicePriceOverchargeRepository) {
         this.typeOfServicePriceOverchargeRepository = typeOfServicePriceOverchargeRepository;
     }
 

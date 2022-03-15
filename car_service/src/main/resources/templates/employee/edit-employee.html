@@ -7,7 +7,7 @@
 
 <h4>Employee edit:</h4>
 <div class="col-6">
-    <form action="#" th:action="@{/employeeView/update/{id}(id=${employee.idEmployees})}" th:object="${employee}" method="post">
+    <form action="#" th:action="@{/employeeView/update/{id}(id=${employee.id})}" th:object="${employee}" method="post">
         <div class="form-group">
             <label for="address">Address:</label>
             <input class="form-control" type="text" th:field="*{address}" placeholder="Address" id="address">

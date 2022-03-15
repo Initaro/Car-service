@@ -24,4 +24,6 @@ public interface IdCardService {
     List<IdCard> findByIdLessThanOrderByLink(long id);
 
     List<IdCard> findAllByOrderByBirthdateAscLinkDesc();
+
+    IdCard getIdCardByCustomer(long id);
 }

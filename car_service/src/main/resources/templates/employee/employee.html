@@ -16,12 +16,12 @@
         <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Edit</th>
         <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Delete</th>
         <tr th:each="employee : ${employees}">
-            <td th:text="${employee.idEmployees}"></td>
+            <td th:text="${employee.id}"></td>
             <td th:text="${employee.name}"></td>
             <td th:text="${employee.address}"></td>
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-info"
-                   th:href="@{'/employeeView/edit/'+${employee.idEmployees}}">Edit</a></td>
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger" th:href="@{'/employeeView/delete/'+${employee.idEmployees}}">Delete</a>
+                   th:href="@{'/employeeView/edit/'+${employee.id}}">Edit</a></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger" th:href="@{'/employeeView/delete/'+${employee.id}}">Delete</a>
             </td>
         </tr>
     </table>

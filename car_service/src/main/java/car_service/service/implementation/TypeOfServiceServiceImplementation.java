@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TypeOfServiceImplementation implements TypeOfServiceService {
+public class TypeOfServiceServiceImplementation implements TypeOfServiceService {
 
     private final TypeOfServiceRepository typeOfServiceRepository;
 
-    public TypeOfServiceImplementation(TypeOfServiceRepository typeOfServiceRepository) {
+    public TypeOfServiceServiceImplementation(TypeOfServiceRepository typeOfServiceRepository) {
         this.typeOfServiceRepository = typeOfServiceRepository;
     }
 

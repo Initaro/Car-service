@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BrandImplementation implements BrandService {
+public class BrandServiceImplementation implements BrandService {
 
     private final BrandRepository brandRepository;
 
-    public BrandImplementation(BrandRepository brandRepository) {
+    public BrandServiceImplementation(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
 

@@ -2,13 +2,16 @@ package car_service.controllers.view;
 
 import car_service.data.entity.Car;
 
-import car_service.data.entity.Car;
+import car_service.data.entity.User;
 import car_service.service.BrandService;
 import car_service.service.CarService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -42,6 +45,7 @@ public class CarViewController {
         carService.updateCar(car, id);
         return "redirect:/carView";
     }
+
     @GetMapping("/create-car")
     public String showCreateCarForm(Model model) {
         model.addAttribute("car", new Car());
@@ -54,9 +58,28 @@ public class CarViewController {
         carService.create(car);
         return "redirect:/carView";
     }
+
     @GetMapping("/delete/{id}")
     public String processProgramForm(@PathVariable int id) {
         carService.deleteCar(id);
         return "redirect:/carView";
+    }
+
+    @GetMapping("/customer")
+    public String getCarsByCustomer( Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+
+        List<Car> cars = new ArrayList<>();
+        if (user.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
+           cars=carService.getCarsByCustomer(user.getId());
+        }else{
+            cars=carService.getCars();
+        }
+
+        model.addAttribute("cars", cars);
+
+        return "/car/car";
     }
 }

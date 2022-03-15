@@ -7,7 +7,7 @@
 
 <h4>Customer edit:</h4>
 <div class="col-6">
-    <form action="#" th:action="@{/customerView/update/{id}(id=${customer.idCustomers})}" th:object="${customer}" method="post">
+    <form action="#" th:action="@{/customerView/update/{id}(id=${customer.id})}" th:object="${customer}" method="post">
         <div class="form-group">
             <label for="name">Name:</label>
             <input class="form-control" type="text" th:field="*{name}" placeholder="Name" id="name">

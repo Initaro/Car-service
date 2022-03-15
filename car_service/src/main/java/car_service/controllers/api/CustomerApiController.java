@@ -43,21 +43,21 @@ public class CustomerApiController {
     }
 
     //Toma
-    @GetMapping("/customer-bill/idCustomers/{idCustomers}")
-    public Double findCustomerBill(@PathVariable("idCustomers") long idCustomers) {
-        return customerService.findCustomerBill(idCustomers);
+    @GetMapping("/customer-bill/id/{id}")
+    public Double findCustomerBill(@PathVariable("id") long id) {
+        return customerService.findCustomerBill(id);
     }
 
     //Kiril
     @GetMapping("/id/{id}")
-    public List<Customer> findAllByIdGreaterThanEqual(@PathVariable("id") long idCustomers) {
-        return customerService.findAllByIdGreaterThanEqual(idCustomers);
+    public List<Customer> findAllByIdGreaterThanEqual(@PathVariable("id") long id) {
+        return customerService.findAllByIdGreaterThanEqual(id);
     }
 
     //Kiril
-    @GetMapping("/customer-bill-before-date/idCustomers/{idCustomers}/dateOfRepair/{dateOfRepair}")
-    public Double findCustomerBillBeforeDate(@PathVariable("idCustomers") long idCustomers, @PathVariable("dateOfRepair") LocalDate dateOfRepair) {
-        return customerService.findCustomerBillBeforeDate(idCustomers, dateOfRepair);
+    @GetMapping("/customer-bill-before-date/id/{id}/dateOfRepair/{dateOfRepair}")
+    public Double findCustomerBillBeforeDate(@PathVariable("id") long id, @PathVariable("dateOfRepair") LocalDate dateOfRepair) {
+        return customerService.findCustomerBillBeforeDate(id, dateOfRepair);
     }
 
 }

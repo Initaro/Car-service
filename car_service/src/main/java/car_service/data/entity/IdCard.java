@@ -16,9 +16,10 @@ public class IdCard {
     private LocalDate birthdate;
     private String link;
 
+
     @OneToOne(mappedBy = "idCard")
     @JsonIgnore
-    Customer customer;
+    private Customer customer;
 
     public IdCard(long id, LocalDate birthdate, String link, Customer customer) {
         this.id = id;
@@ -60,4 +61,12 @@ public class IdCard {
     public String getLink() {
         return link;
     }
+    @Override
+    public String toString() {
+        return "IdCard{" +
+                "id=" + id +
+                ", birthdate=" + birthdate +
+                ", link='" + link + '}';
+    }
+
 }

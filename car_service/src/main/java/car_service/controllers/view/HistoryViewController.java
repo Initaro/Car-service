@@ -1,15 +1,18 @@
 package car_service.controllers.view;
 
-import car_service.data.entity.History;
+import car_service.data.entity.Car;
 import car_service.data.entity.History;
 import car_service.data.entity.User;
 import car_service.service.CarService;
+import car_service.service.CustomerService;
 import car_service.service.HistoryService;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -17,10 +20,12 @@ import java.util.List;
 public class HistoryViewController {
     private final HistoryService historyService;
     private final CarService carService;
+    private final CustomerService customerService;
 
-    public HistoryViewController(HistoryService historyService, CarService carService) {
+    public HistoryViewController(HistoryService historyService, CarService carService, CustomerService customerService) {
         this.historyService = historyService;
         this.carService = carService;
+        this.customerService = customerService;
     }
 
     @GetMapping
@@ -29,6 +34,7 @@ public class HistoryViewController {
         model.addAttribute("histories", histories);
         return "/history/history";
     }
+
     @GetMapping("/create-history")
     public String showCreateHistoryForm(Model model) {
         model.addAttribute("history", new History());
@@ -61,4 +67,20 @@ public class HistoryViewController {
         return "redirect:/historyView";
     }
 
+    @GetMapping("/customer")
+    public String getHistoryByCustomer(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+
+        List<History> histories = new ArrayList<>();
+        if (user.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
+            histories = historyService.getHistoriesByCustomer(user.getId());
+        } else {
+            histories = historyService.getHistory();
+        }
+
+        model.addAttribute("histories", histories);
+        return "/history/history";
+    }
 }

@@ -17,11 +17,11 @@ public interface CustomerService {
     void deleteCustomer(long id);
 
     //Toma
-    Double findCustomerBill(long idCustomers);
+    Double findCustomerBill(long id);
 
     //Kiril
-    List<Customer> findAllByIdGreaterThanEqual(long idCustomers);
+    List<Customer> findAllByIdGreaterThanEqual(long id);
 
     //Kiril
-    Double findCustomerBillBeforeDate(long idCustomers, LocalDate dateOfRepair);
+    Double findCustomerBillBeforeDate(long id, LocalDate dateOfRepair);
 }

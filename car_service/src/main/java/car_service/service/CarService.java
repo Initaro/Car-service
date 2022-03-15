@@ -1,6 +1,7 @@
 package car_service.service;
 
 import car_service.data.entity.Car;
+import car_service.data.entity.History;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface CarService {
 
     //Ivo
     List<Car> findAllByRegistrationNumberStartsWith(String registrationNumber);
+
+    List<Car> getCarsByCustomer(long id);
 }

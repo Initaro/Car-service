@@ -1,19 +1,25 @@
 package car_service.service.implementation;
 
 import car_service.data.entity.Car;
+import car_service.data.entity.Customer;
+import car_service.data.entity.History;
 import car_service.data.repository.CarRepository;
 import car_service.service.CarService;
+import car_service.service.CustomerService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CarImplementation implements CarService {
+public class CarServiceImplementation implements CarService {
 
     private final CarRepository carRepository;
 
-    public CarImplementation(CarRepository autoServiceRepository) {
+    private final CustomerService customerService;
+    public CarServiceImplementation(CarRepository autoServiceRepository, CustomerService customerService) {
         this.carRepository = autoServiceRepository;
+        this.customerService = customerService;
     }
 
     public CarRepository getAutoServiceRepository() {
@@ -53,4 +59,12 @@ public class CarImplementation implements CarService {
         return carRepository.findAllByRegistrationNumberStartsWith(registrationNumber);
     }
 
+
+    @Override
+    public List<Car> getCarsByCustomer(long id) {
+        Customer customer = customerService.getCustomer(id);
+        List<Car> cars = customer.getCars();
+
+        return cars;
+    }
 }

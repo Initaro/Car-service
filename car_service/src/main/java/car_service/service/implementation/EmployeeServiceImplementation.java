@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployeeImplementation implements EmployeeService {
+public class EmployeeServiceImplementation implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
 
-    public EmployeeImplementation(EmployeeRepository employeeRepository) {
+    public EmployeeServiceImplementation(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
@@ -38,7 +38,7 @@ public class EmployeeImplementation implements EmployeeService {
 
     @Override
     public Employee updateEmployee(Employee employee, long id) {
-        employee.setIdEmployees(id);
+        employee.setId(id);
 
         return employeeRepository.save(employee);
     }

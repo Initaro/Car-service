@@ -1,8 +1,12 @@
 package car_service.controllers.view;
 
+import car_service.data.entity.History;
 import car_service.data.entity.IdCard;
+import car_service.data.entity.User;
 import car_service.service.CustomerService;
 import car_service.service.IdCardService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,8 +30,8 @@ public class IdCardViewController {
 
     @GetMapping
     public String getIdCard(Model model) {
-        final List<IdCard> IdCards = idCardService.getIdCard();
-        model.addAttribute("idCards", IdCards);
+        final List<IdCard> idCards = idCardService.getIdCard();
+        model.addAttribute("idCards", idCards);
         return "/idCard/idCard";
     }
 
@@ -47,5 +52,22 @@ public class IdCardViewController {
     public String processProgramForm(@PathVariable int id) {
         idCardService.deleteIdCard(id);
         return "redirect:/idCardView";
+    }
+
+    @GetMapping("/customer")
+    public String getIdCardByCustomer(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+
+        List<IdCard> idCards = new ArrayList<>();
+        if (user.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
+            idCards.add(idCardService.getIdCardByCustomer(user.getId()));
+        } else {
+            idCards = idCardService.getIdCard();
+        }
+
+        model.addAttribute("idCards", idCards);
+        return "/idCard/idCard";
     }
 }

@@ -5,13 +5,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-public class Customer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idCustomers;
+@PrimaryKeyJoinColumn(name = "idCustomers")
+public class Customer extends  User{
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private long id;
     private String name;
 
     @OneToOne
@@ -23,17 +25,23 @@ public class Customer {
     private List<Car> cars;
 
     public Customer() {}
+//
+//    public Customer(long id, String name, IdCard idCard) {
+//        this.id = id;
+//        this.name = name;
+//        this.idCard = idCard;
+//    }
 
-    public Customer(long idCustomers, String name, IdCard idCard) {
-        this.idCustomers = idCustomers;
+    public Customer(long id, String username, String password, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Set<Role> authorities, String name, IdCard idCard) {
+        super(id, username, password, isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled, authorities);
         this.name = name;
         this.idCard = idCard;
     }
 
-
-    public void setIdCustomers(long idCustomers) {
-        this.idCustomers = idCustomers;
-    }
+//
+//    public void setIdCustomers(long id) {
+//        this.id = id;
+//    }
 
     public void setName(String name) {
         this.name = name;
@@ -47,13 +55,13 @@ public class Customer {
         this.cars = cars;
     }
 
-    public List<Car> getCar() {
+    public List<Car> getCars() {
         return cars;
     }
 
-    public long getIdCustomers() {
-        return idCustomers;
-    }
+//    public long getIdCustomers() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
@@ -66,9 +74,9 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "idCustomers=" + idCustomers +
-                ", name='" + name + '\'' +
+                "name='" + name + /* '\'' +
                 ", idCard=" + idCard +
-                '}';
+                ", cars=" + cars + */
+                "} "; /*+ super.toString();*/
     }
 }

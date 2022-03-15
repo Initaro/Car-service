@@ -40,8 +40,7 @@ public class CustomerImplementation implements CustomerService {
 
     @Override
     public Customer updateCustomer(Customer customer, long id) {
-        customer.setIdCustomers(id);
-
+        customer.setId(id);
         return customerRepository.save(customer);
     }
 
@@ -52,17 +51,17 @@ public class CustomerImplementation implements CustomerService {
 
     @Override
     public List<Customer> findAllByIdGreaterThanEqual(long id) {
-        return customerRepository.findAllByIdCustomersGreaterThanEqual(id);
+        return customerRepository.findAllByIdGreaterThanEqual(id);
     }
 
     //Toma
     @Override
-    public Double findCustomerBill(long idCustomers) {
+    public Double findCustomerBill(long id) {
         double income = 0;
 
-        Customer customer = getCustomer(idCustomers);
+        Customer customer = getCustomer(id);
 
-        List<Car> cars = customer.getCar();
+        List<Car> cars = customer.getCars();
         List<History> histories = new ArrayList<>();
         List<TypeOfService> typeOfServices = new ArrayList<>();
 
@@ -83,12 +82,12 @@ public class CustomerImplementation implements CustomerService {
 
     //Kiril
     @Override
-    public Double findCustomerBillBeforeDate(long idCustomers, LocalDate dateOfRepair) {
+    public Double findCustomerBillBeforeDate(long id, LocalDate dateOfRepair) {
         double income = 0;
 
-        Customer customer = getCustomer(idCustomers);
+        Customer customer = getCustomer(id);
 
-        List<Car> cars = customer.getCar();
+        List<Car> cars = customer.getCars();
         List<History> histories = new ArrayList<>();
         List<TypeOfService> typeOfServices = new ArrayList<>();
 

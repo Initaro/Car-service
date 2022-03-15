@@ -7,9 +7,11 @@
 
 <h4>Car list:</h4>
 <div class="col-6">
-    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')" class="btn btn-success" th:href="@{'/carView/create-car/'}">Add</a>
+    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')" class="btn btn-success"
+       th:href="@{'/carView/create-car/'}">Add</a>
 
     <h3 th:unless="${cars} and ${cars.size()}">There are no cars!</h3>
+
     <table th:if="${cars.size()>0}" class="table table-hover">
         <th>Id</th>
         <th>Brand</th>
@@ -26,8 +28,10 @@
             <td th:text="${car.yearOfProduction}"></td>
 
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')"><a class="btn btn-info"
-                   th:href="@{'/carView/edit/'+${car.id}}">Edit</a></td>
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')"><a class="btn btn-danger" th:href="@{'/carView/delete/'+${car.id}}">Delete</a>
+                                                                                             th:href="@{'/carView/edit/'+${car.id}}">Edit</a>
+            </td>
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')"><a class="btn btn-danger"
+                                                                                             th:href="@{'/carView/delete/'+${car.id}}">Delete</a>
             </td>
         </tr>
     </table>

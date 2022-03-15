@@ -2,8 +2,10 @@ package car_service.service.implementation;
 
 import car_service.data.entity.*;
 import car_service.data.repository.HistoryRepository;
+import car_service.service.CustomerService;
 import car_service.service.HistoryService;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,9 +15,11 @@ import java.util.List;
 @Service
 public class HistoryImplementation implements HistoryService {
     private final HistoryRepository historyRepository;
+    private final CustomerService customerService;
 
-    public HistoryImplementation(HistoryRepository historyRepository) {
+    public HistoryImplementation(HistoryRepository historyRepository, CustomerService customerService) {
         this.historyRepository = historyRepository;
+        this.customerService = customerService;
     }
 
     public HistoryRepository getHistoryRepository() {
@@ -87,6 +91,19 @@ public class HistoryImplementation implements HistoryService {
     @Override
     public List<History> findByDateOfRepairNotLike(LocalDate dateOfRepair) {
         return historyRepository.findByDateOfRepairNotLike(dateOfRepair);
+    }
+
+    @Override
+    public List<History> getHistoriesByCustomer(long id) {
+        Customer customer = customerService.getCustomer(id);
+        List<Car> cars = customer.getCars();
+        List<History> histories = new ArrayList<>();
+
+        for(Car car : cars){
+            histories.addAll(car.getHistories());
+        }
+
+        return histories;
     }
 
 }
