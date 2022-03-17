@@ -2,17 +2,18 @@ package car_service.controllers.view;
 
 import car_service.data.entity.History;
 import car_service.data.entity.IdCard;
+<<<<<<< Updated upstream
 import car_service.data.entity.User;
+=======
+import car_service.data.entity.IdCard;
+>>>>>>> Stashed changes
 import car_service.service.CustomerService;
 import car_service.service.IdCardService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,19 @@ public class IdCardViewController {
     @PostMapping("/update/{id}")
     public String updateIdCard(Model model, @PathVariable Long id, IdCard idCard) {
         idCardService.updateIdCard(idCard, id);
+        return "redirect:/idCardView";
+    }
+    
+    @GetMapping("/create-idCard")
+    public String showCreateIdCardForm(Model model) {
+        model.addAttribute("idCard", new IdCard());
+        model.addAttribute("customers", customerService.getCustomer());
+        return "/idCard/create-idCard";
+    }
+
+    @PostMapping("/create")
+    public String createIdCard(@ModelAttribute IdCard idCard) {
+        idCardService.createIdCard(idCard);
         return "redirect:/idCardView";
     }
 

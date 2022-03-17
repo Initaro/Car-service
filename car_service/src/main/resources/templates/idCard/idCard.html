@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments :: head"></head>
 
 <body>
@@ -7,6 +7,7 @@
 
 <h4>IdCard list:</h4>
 <div class="col-6">
+    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')" class="btn btn-success" th:href="@{'/idCardView/create-idCard/'}">Add</a>
     <h3 th:unless="${idCards} and ${idCards.size()}">There are no idCards!</h3>
     <table th:if="${idCards.size()>0}" class="table table-hover">
         <th>Id</th>
