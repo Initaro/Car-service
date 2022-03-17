@@ -30,7 +30,17 @@ public class HistoryViewController {
 
     @GetMapping
     public String getHistories(Model model) {
-        final List<History> histories = historyService.getHistory();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+
+        List<History> histories = new ArrayList<>();
+        if (user.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
+            histories = historyService.getHistoriesByCustomer(user.getId());
+        } else {
+            histories = historyService.getHistory();
+        }
+
         model.addAttribute("histories", histories);
         return "/history/history";
     }
@@ -65,22 +75,5 @@ public class HistoryViewController {
     public String processProgramForm(@PathVariable int id) {
         historyService.deleteHistory(id);
         return "redirect:/historyView";
-    }
-
-    @GetMapping("/customer")
-    public String getHistoryByCustomer(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
-
-        List<History> histories = new ArrayList<>();
-        if (user.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
-            histories = historyService.getHistoriesByCustomer(user.getId());
-        } else {
-            histories = historyService.getHistory();
-        }
-
-        model.addAttribute("histories", histories);
-        return "/history/history";
     }
 }
