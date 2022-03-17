@@ -1,12 +1,7 @@
 package car_service.controllers.view;
 
-import car_service.data.entity.History;
 import car_service.data.entity.IdCard;
-<<<<<<< Updated upstream
 import car_service.data.entity.User;
-=======
-import car_service.data.entity.IdCard;
->>>>>>> Stashed changes
 import car_service.service.CustomerService;
 import car_service.service.IdCardService;
 import org.springframework.security.core.Authentication;
@@ -48,7 +43,7 @@ public class IdCardViewController {
         idCardService.updateIdCard(idCard, id);
         return "redirect:/idCardView";
     }
-    
+
     @GetMapping("/create-idCard")
     public String showCreateIdCardForm(Model model) {
         model.addAttribute("idCard", new IdCard());
@@ -75,7 +70,7 @@ public class IdCardViewController {
 
         List<IdCard> idCards = new ArrayList<>();
         if (user.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
             idCards.add(idCardService.getIdCardByCustomer(user.getId()));
         } else {
             idCards = idCardService.getIdCard();
