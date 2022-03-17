@@ -5,9 +5,9 @@
 <body>
 <header th:replace="fragments :: header"></header>
 
-<h4>Employee list:</h4>
+<h4>All Employees:</h4>
 <div class="col-6">
-    <a class="btn btn-success" th:href="@{'/employeeView/create-employee/'}">Add</a>
+    <a class="btn btn-success" th:href="@{'/employeeView/create-employee/'}" sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Add</a>
     <h3 th:unless="${employees} and ${employees.size()}">There are no employees!</h3>
     <table th:if="${employees.size()>0}" class="table table-hover">
         <th>Id</th>

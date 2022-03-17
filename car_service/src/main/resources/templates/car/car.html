@@ -4,8 +4,8 @@
 
 <body>
 <header th:replace="fragments :: header"></header>
-
-<h4>Car list:</h4>
+<h4 sec:authorize="hasAnyAuthority('CUSTOMER')">All your cars information :</h4>
+<h4 sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')">All Cars :</h4>
 <div class="col-6">
     <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')" class="btn btn-success"
        th:href="@{'/carView/create-car/'}">Add</a>
@@ -18,8 +18,8 @@
         <th>Model</th>
         <th>Registration number</th>
         <th>Year of production</th>
-        <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')">Edit</th>
-        <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')">Delete</th>
+        <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Edit</th>
+        <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Delete</th>
         <tr th:each="car : ${cars}">
             <td th:text="${car.id}"></td>
             <td th:text="${car.brand.name}"></td>
@@ -27,10 +27,10 @@
             <td th:text="${car.registrationNumber}"></td>
             <td th:text="${car.yearOfProduction}"></td>
 
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')"><a class="btn btn-info"
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-info"
                                                                                              th:href="@{'/carView/edit/'+${car.id}}">Edit</a>
             </td>
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')"><a class="btn btn-danger"
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger"
                                                                                              th:href="@{'/carView/delete/'+${car.id}}">Delete</a>
             </td>
         </tr>
