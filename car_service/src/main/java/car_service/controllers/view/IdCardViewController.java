@@ -1,12 +1,6 @@
 package car_service.controllers.view;
-
-import car_service.data.entity.History;
 import car_service.data.entity.IdCard;
-<<<<<<< Updated upstream
 import car_service.data.entity.User;
-=======
-import car_service.data.entity.IdCard;
->>>>>>> Stashed changes
 import car_service.service.CustomerService;
 import car_service.service.IdCardService;
 import org.springframework.security.core.Authentication;
