@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 public interface HistoryService {
     List<History> getHistory();
@@ -25,5 +26,7 @@ public interface HistoryService {
 
     List<History> getHistoriesByCustomer(long id);
 
+    List<History> getHistoriesByEmployee(long id);
 
+    Set<History> getHistoriesByAutoService(long id);
 }

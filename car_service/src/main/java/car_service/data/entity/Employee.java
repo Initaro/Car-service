@@ -9,10 +9,10 @@ import java.util.Set;
 @Entity
 @PrimaryKeyJoinColumn(name = "idEmployees")
 public class Employee extends  User{
-//
+
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-////    private long id;
+//    private long id;
     private String name;
     private String address;
 
@@ -76,5 +76,16 @@ public class Employee extends  User{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                //", typeOfServices=" + typeOfServices +
+                //", histories=" + histories +
+                ", autoService=" + autoService +
+                "} " + super.toString();
     }
 }

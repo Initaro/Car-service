@@ -2,9 +2,11 @@ package car_service.controllers.view;
 
 import car_service.data.entity.Car;
 
+import car_service.data.entity.History;
 import car_service.data.entity.User;
 import car_service.service.BrandService;
 import car_service.service.CarService;
+import car_service.service.EmployeeService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -12,23 +14,46 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/carView")
 public class CarViewController {
     private final CarService carService;
-
+    private final EmployeeService employeeService;
     private final BrandService brandService;
 
-    public CarViewController(CarService carService, BrandService brandService) {
+    public CarViewController(CarService carService, EmployeeService employeeService, BrandService brandService) {
         this.carService = carService;
+        this.employeeService = employeeService;
         this.brandService = brandService;
     }
 
     @GetMapping
     public String getCar(Model model) {
-        final List<Car> cars = carService.getCars();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+
+        List<Car> cars = new ArrayList<>();
+        Set<Car> cars1 = new LinkedHashSet<>();
+
+        if (user.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
+            cars = carService.getCarsByCustomer(user.getId());
+
+        } else if (user.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().equals("EMPLOYEE"))) {
+            long autoServiceId = employeeService.getEmployee(user.getId()).getAutoService().getId();
+            cars1 = carService.getCarsByAutoService(autoServiceId);
+            cars = (new ArrayList<>(cars1));
+
+        } else {
+            cars = carService.getCars();
+        }
+
+        cars = carService.getCars();
         model.addAttribute("cars", cars);
         return "/car/car";
     }
@@ -66,16 +91,16 @@ public class CarViewController {
     }
 
     @GetMapping("/customer")
-    public String getCarsByCustomer( Model model) {
+    public String getCarsByCustomer(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
 
         List<Car> cars = new ArrayList<>();
         if (user.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))){
-           cars=carService.getCarsByCustomer(user.getId());
-        }else{
-            cars=carService.getCars();
+                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
+            cars = carService.getCarsByCustomer(user.getId());
+        } else {
+            cars = carService.getCars();
         }
 
         model.addAttribute("cars", cars);

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/history")
@@ -58,9 +59,20 @@ public class HistoryApiController {
     public List<History> findByDateOfRepairNotLike(@PathVariable("dateOfRepair") LocalDate dateOfRepair) {
         return historyService.findByDateOfRepairNotLike(dateOfRepair);
     }
+
     @GetMapping("/finalPriceByBrand/idHistory/{idHistory}")
     public BigDecimal findFinalPriceByBrand(@PathVariable("idHistory") long idHistory) {
         return historyService.findFinalPriceByBrand(idHistory);
+    }
+
+    @GetMapping("/employeeHistory/{idEmployee}")
+    public List<History> getHistoriesByEmployee(@PathVariable("idEmployee") long idEmployee) {
+        return historyService.getHistoriesByEmployee(idEmployee);
+    }
+
+    @GetMapping("/autoServiceHistory/{autoServiceId}")
+    public Set<History> getHistoriesByAutoService(@PathVariable("autoServiceId") long autoServiceId) {
+        return historyService.getHistoriesByAutoService(autoServiceId);
     }
 
 }

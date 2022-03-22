@@ -1,10 +1,18 @@
 package car_service.controllers.api;
 
 import car_service.data.entity.Car;
+import car_service.data.entity.History;
+import car_service.data.entity.User;
 import car_service.service.CarService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/car")
@@ -50,5 +58,7 @@ public class CarApiController {
     public List<Car> findAllByRegistrationNumberStartsWith(@PathVariable("registrationNumber") String registrationNumber) {
         return carService.findAllByRegistrationNumberStartsWith(registrationNumber);
     }
+
+
 
 }

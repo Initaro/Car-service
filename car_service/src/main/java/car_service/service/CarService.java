@@ -4,6 +4,7 @@ import car_service.data.entity.Car;
 import car_service.data.entity.History;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CarService {
     List<Car> getCars();
@@ -20,4 +21,8 @@ public interface CarService {
     List<Car> findAllByRegistrationNumberStartsWith(String registrationNumber);
 
     List<Car> getCarsByCustomer(long id);
+
+    List<Car> getCarsByEmployee(long id);
+
+    Set<Car> getCarsByAutoService(long id);
 }

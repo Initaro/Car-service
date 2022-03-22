@@ -2,24 +2,31 @@ package car_service.service.implementation;
 
 import car_service.data.entity.*;
 import car_service.data.repository.HistoryRepository;
+import car_service.service.AutoServiceService;
 import car_service.service.CustomerService;
+import car_service.service.EmployeeService;
 import car_service.service.HistoryService;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class HistoryImplementation implements HistoryService {
     private final HistoryRepository historyRepository;
     private final CustomerService customerService;
+    private final EmployeeService employeeService;
+    private final AutoServiceService autoService;
 
-    public HistoryImplementation(HistoryRepository historyRepository, CustomerService customerService) {
+    public HistoryImplementation(HistoryRepository historyRepository, CustomerService customerService, EmployeeService employeeService, AutoServiceService autoService) {
         this.historyRepository = historyRepository;
         this.customerService = customerService;
+        this.employeeService = employeeService;
+        this.autoService = autoService;
     }
 
     public HistoryRepository getHistoryRepository() {
@@ -101,6 +108,26 @@ public class HistoryImplementation implements HistoryService {
 
         for(Car car : cars){
             histories.addAll(car.getHistories());
+        }
+
+        return histories;
+    }
+
+    @Override
+    public List<History> getHistoriesByEmployee(long id) {
+        Employee employee = employeeService.getEmployee(id);
+
+        return employee.getHistories();
+    }
+
+    @Override
+    public Set<History> getHistoriesByAutoService(long id) {
+        AutoService autoService1 = autoService.getAutoService(id);
+        List<Employee> employees = autoService1.getEmployees();
+        Set<History> histories = new LinkedHashSet<>();
+
+        for (Employee employee : employees){
+            histories.addAll(employee.getHistories());
         }
 
         return histories;
