@@ -16,6 +16,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/idCardView")
 public class IdCardViewController {
+
     private final IdCardService idCardService;
     private final CustomerService customerService;
 
@@ -69,9 +70,9 @@ public class IdCardViewController {
         User user = (User) authentication.getPrincipal();
 
         List<IdCard> idCards = new ArrayList<>();
-        if (user.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
+        if (user.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
             idCards.add(idCardService.getIdCardByCustomer(user.getId()));
+
         } else {
             idCards = idCardService.getIdCard();
         }
@@ -79,4 +80,5 @@ public class IdCardViewController {
         model.addAttribute("idCards", idCards);
         return "/idCard/idCard";
     }
+
 }

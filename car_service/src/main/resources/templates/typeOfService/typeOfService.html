@@ -8,7 +8,8 @@
 <h4>These are all the services we provide:</h4>
 <div class="col-6">
     <h3 th:unless="${typeOfServices} and ${typeOfServices.size()}">There are no services!</h3>
-    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')" class="btn  btn-success" th:href="@{/typeOfServiceView/edit-type-of-service}">Add</a>
+    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')" class="btn  btn-success"
+       th:href="@{/typeOfServiceView/edit-type-of-service}">Add</a>
 
     <table th:if="${typeOfServices.size()>0}" class="table table-hover">
         <th>Id</th>
@@ -23,8 +24,10 @@
             <td th:text="${typeOfService.price}"></td>
             <td th:text="${typeOfService.type}"></td>
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-info"
-                   th:href="@{'/typeOfServiceView/edit/'+${typeOfService.idTypeOfService}}">Edit</a></td>
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger" th:href="@{'/typeOfServiceView/delete/'+${typeOfService.idTypeOfService}}">Delete</a>
+                                                                                  th:href="@{'/typeOfServiceView/edit/'+${typeOfService.idTypeOfService}}">Edit</a>
+            </td>
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger"
+                                                                                  th:href="@{'/typeOfServiceView/delete/'+${typeOfService.idTypeOfService}}">Delete</a>
             </td>
         </tr>
     </table>

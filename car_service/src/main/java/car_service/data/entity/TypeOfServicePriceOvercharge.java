@@ -21,9 +21,6 @@ public class TypeOfServicePriceOvercharge {
     @JsonIgnore
     private TypeOfService typeOfService;
 
-    public TypeOfServicePriceOvercharge() {
-    }
-
     public TypeOfServicePriceOvercharge(long id, BigDecimal brandOvercharge) {
         this.id = id;
         this.brandOvercharge = brandOvercharge;
@@ -35,6 +32,8 @@ public class TypeOfServicePriceOvercharge {
         this.brand = brand;
         this.typeOfService = typeOfService;
     }
+
+    public TypeOfServicePriceOvercharge() {}
 
     public long getId() {
         return id;
@@ -67,4 +66,5 @@ public class TypeOfServicePriceOvercharge {
     public void setTypeOfService(TypeOfService typeOfService) {
         this.typeOfService = typeOfService;
     }
+
 }

@@ -46,4 +46,5 @@ public class TypeOfServicePriceOverchargeApiController {
     public TypeOfService findDistinctByName(@PathVariable("typeOfServiceId") long id) {
         return typeOfServicePriceOverchargeService.findByTypeOfService(id);
     }
+
 }

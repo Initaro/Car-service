@@ -8,7 +8,7 @@
 <h4>All Customers:</h4>
 <div class="col-6">
     <h3 th:unless="${customers} and ${customers.size()}">There are no customers!</h3>
-    <a class="btn btn-success" th:href="@{/customerView/edit-create}">Add</a>
+    <!--    <a class="btn btn-success" th:href="@{/customerView/edit-create}">Add</a>-->
 
     <table th:if="${customers.size()>0}" class="table table-hover">
         <th>Id</th>
@@ -19,8 +19,10 @@
             <td th:text="${customer.id}"></td>
             <td th:text="${customer.name}"></td>
             <td><a class="btn btn-info"
-                   th:href="@{'/customerView/edit/'+${customer.id}}" sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Edit</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/customerView/delete/'+${customer.id}}" sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Delete</a>
+                   th:href="@{'/customerView/edit/'+${customer.id}}"
+                   sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/customerView/delete/'+${customer.id}}"
+                   sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Delete</a>
             </td>
         </tr>
     </table>

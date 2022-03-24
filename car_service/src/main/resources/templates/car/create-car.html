@@ -12,7 +12,8 @@
             <label for="registrationNumber">RegistrationNumber:</label>
             <input class="form-control" type="text" th:field="*{registrationNumber}" id="registrationNumber">
             <label for="yearOfProduction">yearOfProduction:</label>
-            <input class="form-control" type="date" th:field="*{yearOfProduction}" placeholder="YearOfProduction" id="yearOfProduction">
+            <input class="form-control" type="date" th:field="*{yearOfProduction}" placeholder="YearOfProduction"
+                   id="yearOfProduction">
             <label for="brand">Brand:</label>
             <select class="form-control" th:field="${car.brand}" id="brand">
                 <option value="">Select Brand</option>

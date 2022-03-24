@@ -7,12 +7,12 @@
 
 <h4>All Employees:</h4>
 <div class="col-6">
-    <a class="btn btn-success" th:href="@{'/employeeView/create-employee/'}" sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Add</a>
+    <!--    <a class="btn btn-success" th:href="@{'/employeeView/create-employee/'}" sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Add</a>-->
     <h3 th:unless="${employees} and ${employees.size()}">There are no employees!</h3>
     <table th:if="${employees.size()>0}" class="table table-hover">
         <th>Id</th>
-        <th>Address</th>
         <th>Name</th>
+        <th>Address</th>
         <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Edit</th>
         <th sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')">Delete</th>
         <tr th:each="employee : ${employees}">
@@ -20,8 +20,10 @@
             <td th:text="${employee.name}"></td>
             <td th:text="${employee.address}"></td>
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-info"
-                   th:href="@{'/employeeView/edit/'+${employee.id}}">Edit</a></td>
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger" th:href="@{'/employeeView/delete/'+${employee.id}}">Delete</a>
+                                                                                  th:href="@{'/employeeView/edit/'+${employee.id}}">Edit</a>
+            </td>
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger"
+                                                                                  th:href="@{'/employeeView/delete/'+${employee.id}}">Delete</a>
             </td>
         </tr>
     </table>

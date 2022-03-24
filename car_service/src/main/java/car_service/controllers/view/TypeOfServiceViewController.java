@@ -11,9 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping("/typeOfServiceView")
@@ -64,7 +62,6 @@ public class TypeOfServiceViewController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
 
-
         List<TypeOfService> typeOfServices = new ArrayList<>();
 
         if (user.getAuthorities().stream()
@@ -78,4 +75,5 @@ public class TypeOfServiceViewController {
         model.addAttribute("typeOfServices", typeOfServices);
         return "/typeOfService/typeOfService";
     }
+
 }

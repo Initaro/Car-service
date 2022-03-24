@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/historyView")
@@ -38,16 +37,15 @@ public class HistoryViewController {
         List<History> histories = new ArrayList<>();
         Set<History> histories1 = new LinkedHashSet<>();
 
-
-        if (user.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
+        if (user.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("CUSTOMER"))) {
             histories = historyService.getHistoriesByCustomer(user.getId());
-        } else if (user.getAuthorities().stream()
-                .anyMatch(a -> a.getAuthority().equals("EMPLOYEE"))) {
+
+        } else if (user.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("EMPLOYEE"))) {
             long autoServiceId = employeeService.getEmployee(user.getId()).getAutoService().getId();
             histories1 = historyService.getHistoriesByAutoService(autoServiceId);
             histories = (new ArrayList<>(histories1));
-        }else{
+
+        } else {
             histories = historyService.getHistory();
         }
 
@@ -101,4 +99,5 @@ public class HistoryViewController {
         model.addAttribute("histories", histories);
         return "/history/history";
     }
+
 }

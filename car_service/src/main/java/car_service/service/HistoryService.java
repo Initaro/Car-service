@@ -1,7 +1,6 @@
 package car_service.service;
 
 import car_service.data.entity.History;
-import org.springframework.ui.Model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,9 +9,13 @@ import java.util.Set;
 
 public interface HistoryService {
     List<History> getHistory();
+
     History getHistory(long id);
+
     History createHistory(History history);
+
     History updateHistory(History history, long id);
+
     void deleteHistory(long id);
 
     //All Toma

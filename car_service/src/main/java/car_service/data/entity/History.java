@@ -25,26 +25,6 @@ public class History {
     @JsonIgnore
     private List<TypeOfService> typeOfServices;
 
-    public void setIdHistory(long idHistory) {
-        this.idHistory = idHistory;
-    }
-
-    public void setDateOfRepair(LocalDate dateOfRepair) {
-        this.dateOfRepair = dateOfRepair;
-    }
-
-    public void setTypeOfServices(List<TypeOfService> typeOfServices) {
-        this.typeOfServices = typeOfServices;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
-
     @ManyToOne
     private Car car;
 
@@ -82,5 +62,25 @@ public class History {
 
     public void setPaid(boolean paid) {
         isPaid = paid;
+    }
+
+    public void setIdHistory(long idHistory) {
+        this.idHistory = idHistory;
+    }
+
+    public void setDateOfRepair(LocalDate dateOfRepair) {
+        this.dateOfRepair = dateOfRepair;
+    }
+
+    public void setTypeOfServices(List<TypeOfService> typeOfServices) {
+        this.typeOfServices = typeOfServices;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }

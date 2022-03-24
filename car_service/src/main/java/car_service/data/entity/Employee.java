@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "idEmployees")
-public class Employee extends  User{
+public class Employee extends User {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +27,6 @@ public class Employee extends  User{
     @ManyToOne
     private AutoService autoService;
 
-//    public Employee(long id, String name, String address) {
-//        this.id = id;
-//        this.name = name;
-//        this.address = address;
-//    }
-
     public Employee(long id, String username, String password, boolean isAccountNonExpired, boolean isAccountNonLocked, boolean isCredentialsNonExpired, boolean isEnabled, Set<Role> authorities, String name, String address, AutoService autoService) {
         super(id, username, password, isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled, authorities);
         this.name = name;
@@ -40,7 +34,13 @@ public class Employee extends  User{
         this.autoService = autoService;
     }
 
-    public Employee() {}
+    public Employee(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public Employee() {
+    }
 
     public List<TypeOfService> getTypeOfServices() {
         return typeOfServices;
@@ -83,9 +83,8 @@ public class Employee extends  User{
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                //", typeOfServices=" + typeOfServices +
-                //", histories=" + histories +
                 ", autoService=" + autoService +
                 "} " + super.toString();
     }
+
 }

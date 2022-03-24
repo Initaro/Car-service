@@ -44,7 +44,8 @@ public class AutoService {
         return employees;
     }
 
-    public AutoService() {}
+    public AutoService() {
+    }
 
     public long getId() {
         return id;
@@ -73,4 +74,5 @@ public class AutoService {
     public List<TypeOfService> getTypeOfServices() {
         return typeOfServices;
     }
+
 }

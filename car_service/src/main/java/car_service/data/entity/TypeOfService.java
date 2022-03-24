@@ -21,10 +21,6 @@ public class TypeOfService {
     @ManyToMany
     private List<Employee> employees;
 
-    public List<TypeOfServicePriceOvercharge> getTypeOfServicePriceOvercharges() {
-        return typeOfServicePriceOvercharges;
-    }
-
     @ManyToMany
     private List<AutoService> autoServices;
 
@@ -88,6 +84,10 @@ public class TypeOfService {
         return description;
     }
 
+    public List<TypeOfServicePriceOvercharge> getTypeOfServicePriceOvercharges() {
+        return typeOfServicePriceOvercharges;
+    }
+
     public List<History> getHistories() {
         return histories;
     }
@@ -109,4 +109,5 @@ public class TypeOfService {
                 ", description='" + description + '\'' +
                 '}';
     }
+
 }

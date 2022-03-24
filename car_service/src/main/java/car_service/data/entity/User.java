@@ -134,4 +134,5 @@ public class User implements UserDetails {
                 ", authorities=" + authorities +
                 '}';
     }
+
 }

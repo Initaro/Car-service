@@ -7,7 +7,8 @@
 
 <h4>Those are all the brands we support:</h4>
 <div class="col-3">
-    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')" class="btn btn-success" th:href="@{'/brandView/create-brand/'}">Add</a>
+    <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')" class="btn btn-success"
+       th:href="@{'/brandView/create-brand/'}">Add</a>
     <h3 th:unless="${brands} and ${brands.size()}">There are no brands!</h3>
     <table th:if="${brands.size()>0}" class="table table-hover">
         <th>Id</th>
@@ -18,8 +19,10 @@
             <td th:text="${brand.idBrands}"></td>
             <td th:text="${brand.name}"></td>
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-info"
-                   th:href="@{'/brandView/edit/'+${brand.idBrands}}">Edit</a></td>
-            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger" th:href="@{'/brandView/delete/'+${brand.idBrands}}">Delete</a>
+                                                                                  th:href="@{'/brandView/edit/'+${brand.idBrands}}">Edit</a>
+            </td>
+            <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger"
+                                                                                  th:href="@{'/brandView/delete/'+${brand.idBrands}}">Delete</a>
             </td>
         </tr>
     </table>

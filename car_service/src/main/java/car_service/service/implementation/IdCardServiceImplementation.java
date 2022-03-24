@@ -79,5 +79,4 @@ public class IdCardServiceImplementation implements IdCardService {
         return customer.getIdCard();
     }
 
-
 }

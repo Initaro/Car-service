@@ -45,11 +45,10 @@ public class Car {
         this.customer = customer;
     }
 
+    public Car() {}
+
     public Customer getCustomer() {
         return customer;
-    }
-
-    public Car() {
     }
 
     public long getId() {
@@ -99,4 +98,5 @@ public class Car {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
 }

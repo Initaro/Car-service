@@ -6,7 +6,6 @@ import car_service.data.entity.TypeOfServicePriceOvercharge;
 import java.util.List;
 
 public interface TypeOfServicePriceOverchargeService {
-
     List<TypeOfServicePriceOvercharge> getTypeOfServicePriceOvercharge();
 
     TypeOfServicePriceOvercharge getTypeOfServicePriceOvercharge(long id);

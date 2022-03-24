@@ -8,7 +8,8 @@
     <form action="#" th:action="@{/historyView/create}" th:object="${history}" method="post">
         <div class="form-group">
             <label for="dateOfRepair">DateOfRepair:</label>
-            <input class="form-control" type="date" th:field="*{dateOfRepair}" placeholder="DateOfRepair" id="dateOfRepair">
+            <input class="form-control" type="date" th:field="*{dateOfRepair}" placeholder="DateOfRepair"
+                   id="dateOfRepair">
             <label for="isPaid">IsPaid:</label>
             <input class="form-control" type="checkbox" th:field="*{paid}" id="isPaid">
             <label for="car">Car:</label>

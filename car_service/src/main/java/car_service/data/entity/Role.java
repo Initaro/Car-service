@@ -57,4 +57,5 @@ public class Role implements GrantedAuthority {
                 ", authority='" + authority + '\'' +
                 '}';
     }
+
 }

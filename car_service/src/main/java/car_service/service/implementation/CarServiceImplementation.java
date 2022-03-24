@@ -21,6 +21,7 @@ public class CarServiceImplementation implements CarService {
     private final AutoServiceService autoService;
 
     private final CustomerService customerService;
+
     public CarServiceImplementation(CarRepository autoServiceRepository, EmployeeService employeeService, AutoServiceService autoService, CustomerService customerService) {
         this.carRepository = autoServiceRepository;
         this.employeeService = employeeService;
@@ -92,10 +93,11 @@ public class CarServiceImplementation implements CarService {
         List<Employee> employees = autoService1.getEmployees();
         Set<Car> cars = new LinkedHashSet<>();
 
-        for (Employee employee : employees){
+        for (Employee employee : employees) {
             cars.addAll(getCarsByEmployee(employee.getId()));
         }
 
         return cars;
     }
+
 }

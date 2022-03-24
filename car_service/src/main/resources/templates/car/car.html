@@ -28,10 +28,10 @@
             <td th:text="${car.yearOfProduction}"></td>
 
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-info"
-                                                                                             th:href="@{'/carView/edit/'+${car.id}}">Edit</a>
+                                                                                  th:href="@{'/carView/edit/'+${car.id}}">Edit</a>
             </td>
             <td sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"><a class="btn btn-danger"
-                                                                                             th:href="@{'/carView/delete/'+${car.id}}">Delete</a>
+                                                                                  th:href="@{'/carView/delete/'+${car.id}}">Delete</a>
             </td>
         </tr>
     </table>

@@ -57,4 +57,5 @@ public class CustomerViewController {
         customerService.deleteCustomer(id);
         return "redirect:/customerView";
     }
+
 }

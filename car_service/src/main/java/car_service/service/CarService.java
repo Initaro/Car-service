@@ -1,7 +1,6 @@
 package car_service.service;
 
 import car_service.data.entity.Car;
-import car_service.data.entity.History;
 
 import java.util.List;
 import java.util.Set;

@@ -52,4 +52,5 @@ public class TypeOfServicePriceOverchargeServiceImplementation implements TypeOf
     public TypeOfService findByTypeOfService(long id) {
         return getTypeOfServicePriceOvercharge(id).getTypeOfService();
     }
+
 }

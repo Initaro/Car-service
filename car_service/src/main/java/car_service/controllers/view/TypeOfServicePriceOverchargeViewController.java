@@ -15,9 +15,7 @@ import java.util.List;
 public class TypeOfServicePriceOverchargeViewController {
 
     private final BrandService brandService;
-
     private final TypeOfServiceService typeOfServiceService;
-
     private final TypeOfServicePriceOverchargeService typeOfServicePriceOverchargeService;
 
     public TypeOfServicePriceOverchargeViewController(BrandService brandService, TypeOfServiceService typeOfServiceService, TypeOfServicePriceOverchargeService typeOfServicePriceOverchargeService) {
@@ -66,4 +64,5 @@ public class TypeOfServicePriceOverchargeViewController {
         typeOfServicePriceOverchargeService.deleteTypeOfServicePriceOvercharge(id);
         return "redirect:/typeOfServicePriceOverchargeView";
     }
+
 }

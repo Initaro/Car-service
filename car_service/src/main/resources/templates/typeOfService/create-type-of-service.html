@@ -10,7 +10,8 @@
     <form action="#" th:action="@{/typeOfServiceView/create}" th:object="${typeOfService}" method="post">
         <div class="form-group">
             <label for="description">Description:</label>
-            <input class="form-control" type="text" th:field="*{description}" placeholder="Description" id="description">
+            <input class="form-control" type="text" th:field="*{description}" placeholder="Description"
+                   id="description">
             <label for="price">Price:</label>
             <input class="form-control" type="text" th:field="*{price}" placeholder="Price" id="price">
             <label for="type">Type:</label>

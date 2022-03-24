@@ -35,7 +35,7 @@ public class IndexController {
 
     @GetMapping("unauthorized")
     public String unauthorized(Model model) {
-        final String welcomeMessage = "WELCOME TO THE CAR SERVICE!";
+        final String welcomeMessage = "Sorry you do not have permission!";
         model.addAttribute("welcome", welcomeMessage);
         return "unauthorized";
     }

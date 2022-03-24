@@ -31,6 +31,9 @@ public class Brand {
         this.name = name;
     }
 
+    public Brand() {
+    }
+
     public List<Car> getCars() {
         return Cars;
     }
@@ -38,8 +41,6 @@ public class Brand {
     public List<AutoService> getAutoServices() {
         return autoServices;
     }
-
-    public Brand() {}
 
     public long getIdBrands() {
         return idBrands;
@@ -56,4 +57,5 @@ public class Brand {
     public void setName(String name) {
         this.name = name;
     }
+
 }

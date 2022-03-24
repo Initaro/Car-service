@@ -10,7 +10,7 @@
             <label for="customer">Customer:</label>
             <select class="form-control" th:field="${idCard.customer}" id="customer">
                 <option value="">Select Customer</option>
-                <option th:each="customer : ${customers}" th:value="${customer.idCustomers}"
+                <option th:each="customer : ${customers}" th:value="${customer.id}"
                         th:text="${customer.name}"></option>
             </select>
             <label for="birthdate">Birthdate:</label>
@@ -18,7 +18,6 @@
 
             <label for="link">link:</label>
             <input class="form-control" type="text" th:field="*{link}" placeholder="Link" id="link">
-
         </div>
         <button type="submit" class="btn btn-primary">Save IdCard</button>
     </form>

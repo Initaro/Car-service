@@ -77,7 +77,7 @@ public class HistoryImplementation implements HistoryService {
         Car car = history.getCar();
         Brand brand = car.getBrand();
         List<TypeOfService> typeOfServices = history.getTypeOfServices();
-        BigDecimal finalPrice=BigDecimal.valueOf(0);
+        BigDecimal finalPrice = BigDecimal.valueOf(0);
         List<TypeOfServicePriceOvercharge> typeOfServicePriceOvercharges = new ArrayList<>();
         for (TypeOfService typeOfService1 : typeOfServices) {
             typeOfServicePriceOvercharges.addAll(typeOfService1.getTypeOfServicePriceOvercharges());
@@ -87,7 +87,7 @@ public class HistoryImplementation implements HistoryService {
             for (TypeOfService typeOfService1 : typeOfServices) {
                 if (brand.equals(typeOfServicePriceOvercharge1.getBrand())) {
                     finalPrice = typeOfServicePriceOvercharge1.getBrandOvercharge().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(typeOfService1.getPrice()));
-                    finalPrice =finalPrice.add(BigDecimal.valueOf(typeOfService1.getPrice()));
+                    finalPrice = finalPrice.add(BigDecimal.valueOf(typeOfService1.getPrice()));
                 }
             }
         }
@@ -106,7 +106,7 @@ public class HistoryImplementation implements HistoryService {
         List<Car> cars = customer.getCars();
         List<History> histories = new ArrayList<>();
 
-        for(Car car : cars){
+        for (Car car : cars) {
             histories.addAll(car.getHistories());
         }
 
@@ -126,7 +126,7 @@ public class HistoryImplementation implements HistoryService {
         List<Employee> employees = autoService1.getEmployees();
         Set<History> histories = new LinkedHashSet<>();
 
-        for (Employee employee : employees){
+        for (Employee employee : employees) {
             histories.addAll(employee.getHistories());
         }
 

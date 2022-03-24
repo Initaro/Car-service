@@ -2,7 +2,6 @@ package car_service.controllers.view;
 
 import car_service.data.entity.Car;
 
-import car_service.data.entity.History;
 import car_service.data.entity.User;
 import car_service.service.BrandService;
 import car_service.service.CarService;

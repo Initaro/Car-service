@@ -12,10 +12,10 @@ public class IdCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
     private String link;
-
 
     @OneToOne(mappedBy = "idCard")
     @JsonIgnore
@@ -27,6 +27,8 @@ public class IdCard {
         this.link = link;
         this.customer = customer;
     }
+
+    public IdCard() {}
 
     public void setId(long id) {
         this.id = id;
@@ -44,8 +46,6 @@ public class IdCard {
         this.customer = customer;
     }
 
-    public IdCard() {}
-
     public Customer getCustomer() {
         return customer;
     }
@@ -61,6 +61,7 @@ public class IdCard {
     public String getLink() {
         return link;
     }
+
     @Override
     public String toString() {
         return "IdCard{" +
