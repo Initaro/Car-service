@@ -5,7 +5,8 @@
 <body>
 <header th:replace="fragments :: header"></header>
 
-<h4>Those are all the brands we support:</h4>
+<h4 sec:authorize="hasAnyAuthority('CUSTOMER')">Those are all the brands we support:</h4>
+<h4 sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')">All Brands :</h4>
 <div class="col-3">
     <a sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')" class="btn btn-success"
        th:href="@{'/brandView/create-brand/'}">Add</a>
