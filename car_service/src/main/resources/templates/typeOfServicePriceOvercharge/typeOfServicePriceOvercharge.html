@@ -5,7 +5,8 @@
 <body>
 <header th:replace="fragments :: header"></header>
 
-<h4>These are all the price overcharges:</h4>
+<h4 sec:authorize="hasAnyAuthority('CUSTOMER')">These are all the price overcharges:</h4>
+<h4 sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE','EMPLOYEE')">All Price overcharges :</h4>
 <div class="col-6">
     <a class="btn btn-success" sec:authorize="hasAnyAuthority('ADMIN', 'ADMIN_AUTO_SERVICE')"
        th:href="@{'/typeOfServicePriceOverchargeView/create-type-of-service-price-overcharge/'}">Add</a>
