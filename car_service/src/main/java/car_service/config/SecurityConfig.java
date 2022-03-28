@@ -26,7 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/carView/edit/**").hasAnyAuthority("ADMIN", "ADMIN_AUTO_SERVICE")
                 .antMatchers("/carView/delete/**").hasAnyAuthority("ADMIN", "ADMIN_AUTO_SERVICE")
                 .antMatchers("/carView/create/**").hasAnyAuthority("ADMIN", "ADMIN_AUTO_SERVICE", "EMPLOYEE")
-
                 .antMatchers("/employeeView/**").hasAnyAuthority("ADMIN", "ADMIN_AUTO_SERVICE")
                 .antMatchers("/historyView/edit/**").hasAnyAuthority("ADMIN", "ADMIN_AUTO_SERVICE", "EMPLOYEE")
                 .antMatchers("/historyView/create/**").hasAnyAuthority("ADMIN", "ADMIN_AUTO_SERVICE", "EMPLOYEE")
